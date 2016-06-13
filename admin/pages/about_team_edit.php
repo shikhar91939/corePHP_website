@@ -41,7 +41,7 @@ if(isset($_POST['submit_team_edit']))
 
       $query_edit = 
       "UPDATE `team` 
-      SET `name`='$name_esc',`bio`='$bio_esc',`image_url`='$img_uploadSrc' 
+      SET `name`='$name_esc',`bio`='$bio_esc',`image_fileName`='$image_uploadName' 
       WHERE `team`.`id` = $id";
     }
 
@@ -122,7 +122,8 @@ if(isset($_POST['submit_team_edit']))
                         <form role="form" method="post" enctype="multipart/form-data">
                           <div class="form-group">
                             <label>Upload Picture</label><br>
-                            <span><img style="max-width:120px" src="<?php echo $row_beforeEditing['image_url']; ?>"></span>
+                            <?php// var_dump('../../admin_uploads/'.$row_beforeEditing['image_fileName']);die; ?>
+                            <span><img style="max-width:120px" src="<?php echo '../../admin_uploads/'.$row_beforeEditing['image_fileName']; ?>"></span>
                             <input type="file" name="img_submitted">
                           </div>
                           <div class="form-group">

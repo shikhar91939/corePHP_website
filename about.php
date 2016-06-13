@@ -99,7 +99,7 @@
                  ?>
                 <div class="col-sm-3">
                     <div class="team-box wow fadeInUp">
-                        <img src="assets/img/team/1.jpg" alt="" data-at2x="assets/img/team/1.jpg">
+                        <img src="<?php echo "admin_uploads/".$teamMember['image_fileName']; ?>" alt="" data-at2x="assets/img/team/1.jpg">
                         <h3><?php echo $teamMember['name']; ?></h3>
                         <p><?php echo $teamMember['bio'] ?></p>
                         <div class="team-social">                           

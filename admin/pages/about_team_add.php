@@ -27,7 +27,7 @@
 
     $name_esc = mysql_escape_string($name);
     $bio_esc = mysql_escape_string($bio);
-    $query = "INSERT INTO team(`name`,`bio`,`image_url`) VALUES('$name_esc','$bio_esc','$img_uploadSrc')";
+    $query = "INSERT INTO team(`name`,`bio`,`image_fileName`) VALUES('$name_esc','$bio_esc','$image_uploadName')";
 
     // var_dump($query);die;
     if(!mysql_query($query))

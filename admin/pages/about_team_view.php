@@ -80,7 +80,7 @@
                                         <?php while($row = mysql_fetch_array($result) ) : ?>
                                         <tr class="odd gradeX">
                                             <td><?php echo $row['id']; ?></td>
-                                            <td><img style="max-width: 120px;" src="<?php echo $row['image_url']; ?>"></td>
+                                            <td><img style="max-width: 120px;" src="<?php echo '../../admin_uploads/'.$row['image_fileName']; ?>"></td>
                                             <td><?php echo $row['name']; ?></td>
                                             <td><?php echo $row['bio']; ?></td>
                                             <td class="center"><a href="about_team_edit.php?id=<?php echo $row['id']; ?>">Edit</a> / <a href="about_team_delete.php?id=<?php echo $row['id']; ?>">Delete</a></td>
