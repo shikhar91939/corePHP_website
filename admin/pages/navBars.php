@@ -254,10 +254,10 @@
                         <a href="#">Meet Our Team<span class="fa arrow"></span></a>
                         <ul class="nav nav-third-level">
                             <li>
-                                <a href="#">View</a>
+                                <a href="about_team_view.php">View</a>
                             </li>
                             <li>
-                                <a href="#">Add</a>
+                                <a href="about_team_add.php">Add</a>
                             </li>
                         </ul>
                     </li>

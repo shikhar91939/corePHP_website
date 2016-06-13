@@ -74,7 +74,7 @@
                                             <th>DB id</th>
                                             <th>Title</th>
                                             <th>Description</th>
-                                            <th>Edit / Delete</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
