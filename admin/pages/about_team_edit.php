@@ -114,15 +114,15 @@ if(isset($_POST['submit_team_edit']))
               <div class="col-lg-12">
                 <div class="panel panel-default">
                   <div class="panel-heading">
-                    Editing member with id <?php echo $row["$id"]; ?>
+                    Editing member named <?php echo "<strong>" . $row_beforeEditing['name'] 
+                    . "</strong>, with Databse ID " . $row_beforeEditing["id"]; ?>
                   </div>
                   <div class="panel-body">
                     <div class="row">
                       <div class="col-lg-6">
                         <form role="form" method="post" enctype="multipart/form-data">
                           <div class="form-group">
-                            <label>Upload Picture</label><br>
-                            <?php// var_dump('../../admin_uploads/'.$row_beforeEditing['image_fileName']);die; ?>
+                            <label>Picture</label><br>
                             <span><img style="max-width:120px" src="<?php echo '../../admin_uploads/'.$row_beforeEditing['image_fileName']; ?>"></span>
                             <input type="file" name="img_submitted">
                           </div>
