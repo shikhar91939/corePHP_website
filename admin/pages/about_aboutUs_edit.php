@@ -13,11 +13,7 @@ if(isset($_POST["submit_about_edit"]))
   $title_new = $_POST['title'];
   $descr_new = $_POST['description'];
 
-  // $title_new = mysql_escape_string($title_new);
-  // $descr_new = mysql_escape_string($descr_new);
-
   $query_updateDB = "UPDATE `about` SET title='$title_new', description='$descr_new' WHERE `about`.id=$id";
-  // var_dump($query_updateDB);die;
   mysql_query($query_updateDB) or die("Error in query: $query_updateDB");
   header("location:about_aboutUs_view");
 
