@@ -34,7 +34,7 @@ if(isset($_POST['portfolio_add']))
 
   $query_addPortfolio = 
   "INSERT INTO `portfolio_items`(`type`, `title`, `description`, `image_name`, `video_url`)
-   VALUES('$title_esc', '$type_esc', '$description_esc', '$image_uploadName', '$videoUrl_esc')";
+   VALUES('$type_esc', '$title_esc', '$description_esc', '$image_uploadName', '$videoUrl_esc')";
   // echo "query";
   // var_dump($query_addPortfolio);die;
   
