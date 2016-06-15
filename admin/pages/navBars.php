@@ -275,19 +275,21 @@
                         </ul>
                     </li>
 <!-- end of Services -->
+                    <li>
+                        <a href="#"><i class="fa fa-info-circle"></i>Portfolio<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li><a href="portfolio_add.php">Add A Portfolio Item</a></li>
+                            <li><a href="portfolio_view.php">View Portfolio Items</a></li>
+                        </ul>
+                    </li>
+<!-- end of portfolio -->
 <!--                     <li>
                         <a href="#"><i class="fa fa-info-circle"></i>Portfolio<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li>
-                                <a href="#">List Of Services<span class="fa arrow"></span></a>
-                                <ul class="nav nav-third-level">
-                                    <li> <a href="services_list_view.php">View</a> </li>
-                                    <li> <a href="services_list_add.php">Add</a> </li>
-                                </ul>
-                            </li>
+                            <li><a href="portfolio_add.php">Add A Portfolio Item</a></li>
+                            <li><a href="portfolio_view.php">View Portfolio Items</a></li>
                         </ul>
                     </li> -->
-
                 </ul>
             </div>
             <!-- /.sidebar-collapse -->
