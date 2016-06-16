@@ -20,14 +20,14 @@ if(isset($_POST['submit_team_edit']))
   $image_type = $_FILES['img_submitted']['type'];
   $image_location = $_FILES['img_submitted']['tmp_name'];
 
-    // only if the user uploads an image, try to save image. 
-    // else usethe query to update name and bio only.
+  // IF- the user uploads an image, try to save image. 
+  // ELSE- use the query to update name and bio only.
   if(strcmp($image_name, '')!=0 && strcmp($image_type, '')!=0) 
   {
-      //this block is executed if name and type are not empty
-      // as strcmp() returns 0 if arguments match
-    if(!in_array($image_type, array("image/jpeg","image/png")))
-      die("please provide png or jpg file only");
+    //this block is executed if name and type are not empty
+    // as strcmp() returns 0 if arguments match
+    if(!in_array($image_type, array("image/jpeg","image/png","image/gif")))
+      die("please provide png, jpg or gif file only");
     else
     {
       $uploadDir = "../../admin_uploads";
@@ -44,16 +44,15 @@ if(isset($_POST['submit_team_edit']))
       SET `name`='$name_esc',`bio`='$bio_esc',`image_fileName`='$image_uploadName' 
       WHERE `team`.`id` = $id";
     }
-
   }
-    else// else use the query to update name and bio only. (leave the image as it is)
-    {
+  else// else use the query to update name and bio only. (leave the image as it is)
+  {
 
-      $query_edit = 
-      "UPDATE `team` 
-      SET `name` = '$name_esc', `bio` = '$bio_esc' 
-      WHERE `team`.`id` = $id";
-    }
+    $query_edit = 
+    "UPDATE `team` 
+    SET `name` = '$name_esc', `bio` = '$bio_esc' 
+    WHERE `team`.`id` = $id";
+  }
 
 
     // var_dump($query);die;
