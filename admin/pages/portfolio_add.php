@@ -29,6 +29,8 @@ if(isset($_POST['portfolio_add']))
 
   $image_uploadName = str_replace(array(" ","-"), "_", $image_name);
   $UploadDirectory = "../../admin_uploads/";
+  if( !is_dir($UploadDirectory) && !mkdir($UploadDirectory))
+    die('error in creating upload directory');
   move_uploaded_file($image_tmp, $UploadDirectory.$image_uploadName)
     or die("Error in uploading file");
 
@@ -40,6 +42,8 @@ if(isset($_POST['portfolio_add']))
   
   mysql_query($query_addPortfolio) 
     or die("error in query: $query_addPortfolio"."<br>Error: ".mysql_error());
+
+  header("location:portfolio_view.php");
 }
 ?>
 
@@ -119,7 +123,7 @@ if(isset($_POST['portfolio_add']))
                                         <input type="file" name="image_submit" >
                                     </div>
                                     <div class="form-group">
-                                        <label>Video URL</label>
+                                        <label>Video URL</label><span> (Optional)</span>
                                         <input type="text" name="videoUrl" class="form-control">
                                     </div>
                                     <button name="portfolio_add" type="submit" class="btn btn-default">Submit</button>
