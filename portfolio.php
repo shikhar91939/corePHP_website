@@ -1,3 +1,16 @@
+<?php 
+  include 'connect.php';
+
+  $arr_typeToCssClass = array(
+    "radio_webDesign" => "portfolio-box web-design",
+    "radio_logoDesign" => "portfolio-box logo-design",
+    "radio_printDesign" => "portfolio-box print-design");
+
+  $query_getPortfolioItems = "SELECT * FROM portfolio_items";
+  $sqlTable_portfolioItems = mysql_query($query_getPortfolioItems);
+  if(!$sqlTable_portfolioItems)
+    die("bad sql query: ".$sqlTable_portfolioItems."<br>Error: ".mysql_error());
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -68,45 +81,8 @@
               </div>
               <div class="row">
                 <div class="col-sm-12 portfolio-masonry">
-                    <div class="portfolio-box web-design">
-                      <div class="portfolio-box-container">
-                        <img src="assets/img/portfolio/work1.jpg" alt="" data-at2x="assets/img/portfolio/work1.jpg">
-                        <div class="portfolio-box-text">
-                          <h3>Lorem Website</h3>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="portfolio-box logo-design">
-                      <div class="portfolio-box-container">
-                        <img class="portfolio-video" src="assets/img/portfolio/work2.jpg" alt="" data-at2x="assets/img/portfolio/work2.jpg" 
-                                          data-portfolio-video="http://vimeo.com/84910153?autoplay=0">
-                        <i class="portfolio-box-icon fa fa-play"></i>
-                        <div class="portfolio-box-text">
-                          <h3>Ipsum Logo</h3>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="portfolio-box print-design">
-                      <div class="portfolio-box-container">
-                        <img src="assets/img/portfolio/work3.jpg" alt="" data-at2x="assets/img/portfolio/work3.jpg">
-                        <div class="portfolio-box-text">
-                          <h3>Dolor Prints</h3>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="portfolio-box web-design">
-                      <div class="portfolio-box-container">
-                        <img src="assets/img/portfolio/work4.jpg" alt="" data-at2x="assets/img/portfolio/work4.jpg">
-                        <div class="portfolio-box-text">
-                          <h3>Sit Amet Website</h3>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="portfolio-box logo-design">
+
+<!--                     <div class="portfolio-box logo-design">
                       <div class="portfolio-box-container">
                         <img class="portfolio-video" src="assets/img/portfolio/work5.jpg" alt="" data-at2x="assets/img/portfolio/work5.jpg" 
                                           data-portfolio-video="https://www.youtube.com/watch?v=tFTLxkMmY4M">
@@ -116,8 +92,8 @@
                           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
                         </div>
                       </div>
-                    </div>
-                    <div class="portfolio-box print-design">
+                    </div> -->
+<!--                     <div class="portfolio-box print-design">
                       <div class="portfolio-box-container">
                         <img src="assets/img/portfolio/work6.jpg" alt="" data-at2x="assets/img/portfolio/work6.jpg">
                         <div class="portfolio-box-text">
@@ -125,8 +101,8 @@
                           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
                         </div>
                       </div>
-                    </div>
-                    <div class="portfolio-box web-design">
+                    </div> -->
+<!--                     <div class="portfolio-box web-design">
                       <div class="portfolio-box-container">
                         <img src="assets/img/portfolio/work7.jpg" alt="" data-at2x="assets/img/portfolio/work7.jpg">
                         <div class="portfolio-box-text">
@@ -134,35 +110,8 @@
                           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
                         </div>
                       </div>
-                    </div>
-                    <div class="portfolio-box print-design">
-                      <div class="portfolio-box-container">
-                        <img src="assets/img/portfolio/work8.jpg" alt="" data-at2x="assets/img/portfolio/work8.jpg">
-                        <div class="portfolio-box-text">
-                          <h3>Sed Do Prints</h3>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="portfolio-box web-design">
-                      <div class="portfolio-box-container">
-                        <img src="assets/img/portfolio/work9.jpg" alt="" data-at2x="assets/img/portfolio/work9.jpg">
-                        <div class="portfolio-box-text">
-                          <h3>Eiusmod Website</h3>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="portfolio-box logo-design">
-                      <div class="portfolio-box-container">
-                        <img src="assets/img/portfolio/work10.jpg" alt="" data-at2x="assets/img/portfolio/work10.jpg">
-                        <div class="portfolio-box-text">
-                          <h3>Tempor Logo</h3>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="portfolio-box web-design">
+                    </div> -->
+<!--                     <div class="portfolio-box web-design">
                       <div class="portfolio-box-container">
                         <img src="assets/img/portfolio/work11.jpg" alt="" data-at2x="assets/img/portfolio/work11.jpg">
                         <div class="portfolio-box-text">
@@ -170,8 +119,8 @@
                           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
                         </div>
                       </div>
-                    </div>
-                    <div class="portfolio-box print-design">
+                    </div> -->
+<!--                     <div class="portfolio-box print-design">
                       <div class="portfolio-box-container">
                         <img src="assets/img/portfolio/work12.jpg" alt="" data-at2x="assets/img/portfolio/work12.jpg">
                         <div class="portfolio-box-text">
@@ -179,7 +128,25 @@
                           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
                         </div>
                       </div>
+                    </div> -->
+                    <?php 
+                      while($row = mysql_fetch_array($sqlTable_portfolioItems)):
+                    ?>
+                    <!-- start: 1 portfolio item -->
+                    <div class=<?php echo $arr_typeToCssClass[$row['type']]; ?>>
+                      <div class="portfolio-box-container">
+                        <?php $image_fileName = $row['image_name'];
+                          $video_url = $row['video_url']; ?>
+                        <img <?php if($video_url) echo 'class="portfolio-video" data-portfolio-video="'.$video_url.'" '; ?>src="admin_uploads/<?php echo $image_fileName; ?>" alt="" data-at2x="admin_uploads/<?php echo $image_fileName; ?>" style="max-height:122px;max-width:255px">
+                        <?php if($video_url) echo '<i class="portfolio-box-icon fa fa-play"></i>' ?>
+                        <div class="portfolio-box-text">
+                          <h3><?php echo $row['title']; ?></h3>
+                          <p><?php echo $row['description']; ?></p>
+                        </div>
+                      </div>
                     </div>
+                    <!-- end: 1 portfolio item -->
+                    <?php endwhile; ?>
                   </div>
               </div>
           </div>

@@ -116,7 +116,7 @@ if(isset($_POST['portfolio_add']))
                                     </div>
                                     <div class="form-group">
                                         <label>Description</label>
-                                        <input name="description" class="form-control">
+                                        <textarea name="description" class="form-control" rows="4"></textarea>
                                     </div>
                                     <div class="form-group">
                                         <label>Upload Image</label>
