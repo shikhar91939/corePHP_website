@@ -234,28 +234,46 @@
                                 </button>
                             </span>
                         </div>
-                        <!-- /input-group -->
                     </li>
+<!--  Start: home -->
                     <li>
-                        <a href="#"><i class="fa fa-info-circle"></i> About<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-info-circle"></i> Home<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="about_aboutUs_view.php">About Us<span class="fa arrow"></span></a>
+                                <a href="about_aboutUs_view.php">Slider Banner<span class="fa arrow"></span></a>
                                 <ul class="nav nav-third-level">
-                                    <li> <a href="about_aboutUs_view.php">View</a> </li>
-                                    <li> <a href="about_aboutUs_add.php">Add</a> </li>
+                                    <li> <a href="home_slider_view.php">View</a> </li>
+                                    <li> <a href="home_slider_add.php">Add</a> </li>
                                 </ul>
                             </li>
                             <li>
-                                <a href="#">Meet Our Team<span class="fa arrow"></span></a>
+                                <a href="#">Why Choose Us<span class="fa arrow"></span></a>
+                                <ul class="nav nav-third-level">
+                                    <li> <a href="home_whyUs_view.php">View</a> </li>
+                                    <li> <a href="home_whyUs_add.php">Add</a> </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">Testimonials<span class="fa arrow"></span></a>
                                 <ul class="nav nav-third-level">
                                     <li> <a href="about_team_view.php">View</a> </li>
                                     <li> <a href="about_team_add.php">Add</a> </li>
                                 </ul>
                             </li>
+
                         </ul>
-                        <!-- /.nav-second-level -->
                     </li>
+<!-- end : home -->
+<!-- start: portfolio  -->
+                    <li>
+                        <a href="#"><i class="fa fa-info-circle"></i>Portfolio<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li><a href="portfolio_add.php">Add A Portfolio Item</a></li>
+                            <li><a href="portfolio_view.php">View Portfolio Items</a></li>
+                        </ul>
+                    </li>
+<!-- end of portfolio -->
+<!-- start: services page -->
                     <li>
                         <a href="#"><i class="fa fa-info-circle"></i>Services<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
@@ -274,22 +292,28 @@
                             </li>
                         </ul>
                     </li>
-<!-- end of Services -->
+<!-- end : Services page -->
+<!-- Start: About Us Page -->
                     <li>
-                        <a href="#"><i class="fa fa-info-circle"></i>Portfolio<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-info-circle"></i> About<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li><a href="portfolio_add.php">Add A Portfolio Item</a></li>
-                            <li><a href="portfolio_view.php">View Portfolio Items</a></li>
+                            <li>
+                                <a href="about_aboutUs_view.php">About Us<span class="fa arrow"></span></a>
+                                <ul class="nav nav-third-level">
+                                    <li> <a href="about_aboutUs_view.php">View</a> </li>
+                                    <li> <a href="about_aboutUs_add.php">Add</a> </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">Meet Our Team<span class="fa arrow"></span></a>
+                                <ul class="nav nav-third-level">
+                                    <li> <a href="about_team_view.php">View</a> </li>
+                                    <li> <a href="about_team_add.php">Add</a> </li>
+                                </ul>
+                            </li>
                         </ul>
                     </li>
-<!-- end of portfolio -->
-<!--                     <li>
-                        <a href="#"><i class="fa fa-info-circle"></i>Portfolio<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li><a href="portfolio_add.php">Add A Portfolio Item</a></li>
-                            <li><a href="portfolio_view.php">View Portfolio Items</a></li>
-                        </ul>
-                    </li> -->
+<!-- end: about us page -->
                 </ul>
             </div>
             <!-- /.sidebar-collapse -->

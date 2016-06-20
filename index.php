@@ -1,3 +1,6 @@
+<?php 
+  include 'connect.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,42 +45,23 @@
         <!-- Top menu -->
         <?php include 'header.php'; ?>
         <!-- Slider -->
+        <?php 
+          $query_getSliders = "SELECT * FROM home_slider";
+          ($slider_sqlTable = mysql_query($query_getSliders)) 
+            or die('mySQL error: '.mysql_error());
+         ?>
         <div class="slider-container">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-10 col-sm-offset-1 slider">
                         <div class="flexslider">
                             <ul class="slides">
-                                <li data-thumb="assets/img/slider/1.jpg">
-                                    <img src="assets/img/slider/1.jpg">
-                                    <div class="flex-caption">
-                                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et. 
-                                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et. 
-                                      Lorem ipsum dolor sit amet, consectetur.
-                                    </div>
+                              <?php while($slider_row = mysql_fetch_array($slider_sqlTable)) : ?>
+                                <li data-thumb="admin_uploads/<?php echo $slider_row['image_name'];?>">
+                                  <img src="admin_uploads/<?php echo $slider_row['image_name'];?>">
+                                  <div class="flex-caption"> <?php echo $slider_row['caption_text']; ?> </div>
                                 </li>
-                                <li data-thumb="assets/img/slider/2.jpg">
-                                    <img src="assets/img/slider/2.jpg">
-                                    <div class="flex-caption">
-                                      Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit 
-                                      lobortis nisl ut aliquip ex ea commodo consequat.
-                                    </div>
-                                </li>
-                                <li data-thumb="assets/img/slider/3.jpg">
-                                    <img src="assets/img/slider/3.jpg">
-                                    <div class="flex-caption">
-                                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et. 
-                                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et. 
-                                      Lorem ipsum dolor sit amet, consectetur.
-                                    </div>
-                                </li>
-                                <li data-thumb="assets/img/slider/4.jpg">
-                                    <img src="assets/img/slider/4.jpg">
-                                    <div class="flex-caption">
-                                      Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit 
-                                      lobortis nisl ut aliquip ex ea commodo consequat.
-                                    </div>
-                                </li>
+                                <?php endwhile; ?>
                             </ul>
                         </div>
                     </div>

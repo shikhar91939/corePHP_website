@@ -1,37 +1,37 @@
 <?php 
   include '../../connect.php';
 
-  if(isset($_POST['submit_team_add']))
+  if(isset($_POST['home_slider_add']))
   {
-    $name = $_POST['name'];
-    $bio = $_POST['bio'];
-    $image_name = $_FILES['img_submitted']['name'];
-    $image_type = $_FILES['img_submitted']['type'];
-    $image_location = $_FILES['img_submitted']['tmp_name'];
+    $caption = $_POST['caption'];
+    $image_name = $_FILES['bannerImage']['name'];
+    $image_type = $_FILES['bannerImage']['type'];
+    $image_location = $_FILES['bannerImage']['tmp_name'];
 
-    if(in_array($image_type, array("image/jpeg","image/png","image/gif")))
-    {
-      $uploadDir = "../../admin_uploads";
-      if( !is_dir($uploadDir) && !mkdir($uploadDir))
-        die('error in creating upload directory');
-
-      $image_uploadName = str_replace(array(' ','-'), "_", $image_name);
-      $img_uploadSrc = $uploadDir."/".$image_uploadName;
-      if(!$is_uploaded = move_uploaded_file($image_location, $img_uploadSrc))
-        die('error in uploading file');
-
-      var_dump($is_uploaded);
-    }
-    else
+    // proceed only if the given file is an image
+    if(!in_array($image_type, array("image/jpeg","image/png","image/gif")))
       die("please provide png or jpg file only");
 
-    $name_esc = mysql_escape_string($name);
-    $bio_esc = mysql_escape_string($bio);
-    $query = "INSERT INTO team(`name`,`bio`,`image_fileName`) VALUES('$name_esc','$bio_esc','$image_uploadName')";
+    // quit if directory doesn't exist and cannot be created
+    $uploadDir = "../../admin_uploads/";
+    if( !is_dir($uploadDir) && !mkdir($uploadDir))
+      die('error in creating upload directory');
 
-    // var_dump($query);die;
-    if(!mysql_query($query))
+    //move file from temporary to upload directory. die in case of error
+    $image_uploadName = str_replace(array(' ','-'), "_", $image_name);
+    $img_uploadSrc = $uploadDir.$image_uploadName;
+    if(!$is_uploaded = move_uploaded_file($image_location, $img_uploadSrc))
+      die('error in uploading file');
+
+    $image_uploadName_esc = mysql_escape_string($image_uploadName);
+    $caption_esc = mysql_escape_string($caption);
+    $query_addSlider = "INSERT INTO home_slider(`image_name`,`caption_text`) VALUES('$image_uploadName_esc', '$caption_esc')";
+
+    // var_dump($query_addSlider);die;
+    if(!mysql_query($query_addSlider))
       die('error in sql query, error:'.mysql_error());
+
+    header("location:home_slider_view.php");
   }
 ?>
 
@@ -44,7 +44,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Add>Team>Add</title
+    <title>Home > Slider > Add</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -64,20 +64,16 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
 </head>
 <body>
-
-
 <div id="wrapper">
-
     <!-- Navigation -->
     <?php include 'navBars.php'; ?>
 
     <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">About  > Team > Add</h1>
+                <h1 class="page-header">Home > Slider > Add</h1>
             </div>
             <!-- /.col-lg-12 -->
         </div>
@@ -86,25 +82,21 @@
             <div class="col-lg-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Add a new member's bio
+                        Add A New Slider Banner
                     </div>
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-lg-6">
                                 <form role="form" method="post" enctype="multipart/form-data">
                                     <div class="form-group">
-                                        <label>Upload Picture</label>
-                                        <input type="file" name="img_submitted">
+                                        <label>Image</label>
+                                        <input name="bannerImage" type="file" >
                                     </div>
                                     <div class="form-group">
-                                        <label>Title</label>
-                                        <input name="name" class="form-control" placeholder="John Doe">
+                                        <label>Caption</label>
+                                        <textarea name="caption" class="form-control" rows="3"></textarea>
                                     </div>
-                                    <div class="form-group">
-                                        <label>Bio</label>
-                                        <input name="bio" class="form-control" placeholder="John handles finances and keeps account of every singe penny">
-                                    </div>
-                                    <button name="submit_team_add" type="submit" class="btn btn-default">Submit</button>
+                                    <button name="home_slider_add" type="submit" class="btn btn-default">Submit</button>
                                 </form>
                             </div>
                             <!-- /.col-lg-6 (nested) -->
