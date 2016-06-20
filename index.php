@@ -84,43 +84,27 @@
         <!-- Services -->
         <div class="services-container">
           <div class="container">
-              <div class="row">
+            <div class="row">
+            <?php 
+              $query_getServices = "SELECT * FROM `home_whyUs`";
+              ($whyUs_sqlTable = mysql_query($query_getServices))
+                or die('Error in mySQL query: '.mysql_error());
+             ?>
+              <?php while($whyUs_row=mysql_fetch_array($whyUs_sqlTable)) : ?>
                 <div class="col-sm-3">
-                    <div class="service wow fadeInUp">
-                        <div class="service-icon"><i class="fa fa-eye"></i></div>
-                        <h3>Beautiful Websites</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et...</p>
-                        <a class="big-link-1" href="services.html">Read more</a>
-                    </div>
-          </div>
-          <div class="col-sm-3">
-                    <div class="service wow fadeInDown">
-                        <div class="service-icon"><i class="fa fa-table"></i></div>
-                        <h3>Responsive Layout</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et...</p>
-                        <a class="big-link-1" href="services.html">Read more</a>
-                    </div>
-                  </div>
-                  <div class="col-sm-3">
-                    <div class="service wow fadeInUp">
-                        <div class="service-icon"><i class="fa fa-magic"></i></div>
-                        <h3>Awesome Logos</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et...</p>
-                        <a class="big-link-1" href="services.html">Read more</a>
-                    </div>
-                  </div>
-                  <div class="col-sm-3">
-                    <div class="service wow fadeInDown">
-                        <div class="service-icon"><i class="fa fa-print"></i></div>
-                        <h3>High Res Prints</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et...</p>
-                        <a class="big-link-1" href="services.html">Read more</a>
-                    </div>
-                  </div>
+                  <div class="service wow fadeInUp" style="height:252px; ">
+                    <div class="service-icon">
+                   <img src="admin_uploads/<?php echo $whyUs_row['image_name']; ?>" alt="" data-at2x="admin_uploads/<?php echo $whyUs_row['image_name']; ?>" style="max-height:85px"/>
+                   </div>
+                   <h3><?php echo $whyUs_row['title']; ?></h3>
+                   <div style="height:60px"><p><?php echo $whyUs_row['description']; ?></p></div>
+                   <a class="big-link-1" href="services.html">Read more</a>
+                 </div>
+               </div>
+               <?php endwhile;?>
               </div>
           </div>
         </div>
-
         <!-- Latest work -->
         <div class="work-container">
           <div class="container">
